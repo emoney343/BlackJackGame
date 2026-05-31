@@ -45,8 +45,19 @@ public class Shop {
         }
 
         System.out.println("3: skip");
-        System.out.print("Choice: ");
-        int choice = scanner.nextInt();
+        int choice = -1;
+        while (choice < 0 || choice > 3) {
+            System.out.print("Choice: ");
+            if (scanner.hasNextInt()) {
+                choice = scanner.nextInt();
+                if (choice < 0 || choice > 3) {
+                    System.out.println("Invalid input. Please enter 0, 1, 2, or 3.");
+        }
+    } else {
+        System.out.println("Invalid input. Please enter a number.");
+        scanner.next();
+    }
+}
 
         if (choice >= 0 && choice < 3) {
             if (player.getGold() >= 10) {
