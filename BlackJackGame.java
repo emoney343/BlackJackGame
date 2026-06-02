@@ -19,9 +19,15 @@ public class BlackJackGame {
 
         while (player.isAlive()) {
             System.out.println("\n--- FLOOR " + floor + " ---");
-            player.printStatus();
 
-            playRound();
+            for (int round = 1; round <= 3; round ++) {
+                if (!player.isAlive()) break;
+                System.out.println("\n-- Round" + round + " of 3 --");
+                player.printStatus();
+                playRound();
+
+            }
+            
 
             if (player.isAlive()) {
                 shop.openShop(player, scanner);
